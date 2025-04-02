@@ -234,11 +234,11 @@ namespace RideMatch.Services
 
                 // Calculate pickup times (simplified)
                 var baseTime = DateTime.Now.Date.AddHours(7); // Assuming school starts at 7:00
-                var timePerPickup = TimeSpan.FromMinutes(5);
+                var timePerPickup = 5; // minutes per pickup
 
                 for (int i = 0; i < passengerIds.Count; i++)
                 {
-                    var pickupTime = baseTime.Add(timePerPickup * i);
+                    var pickupTime = baseTime.AddMinutes(timePerPickup * i);
                     _databaseService.UpdatePassengerAssignment(passengerIds[i], driverId, pickupTime);
                 }
             }
