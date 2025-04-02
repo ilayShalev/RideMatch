@@ -42,6 +42,171 @@ namespace RideMatch.Forms
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.MultiSelect = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.RowHeadersVisible = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.BackgroundColor = System.Drawing.SystemColors.Window;
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.AutoGenerateColumns = false;
+
+            // Clear existing columns
+            dgv.Columns.Clear();
+
+            // Add columns based on grid type
+            if (dgv == dataGridViewDrivers)
+            {
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "Id",
+                    Name = "Id",
+                    HeaderText = "מזהה",
+                    Width = 50
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "Name",
+                    Name = "Name",
+                    HeaderText = "שם",
+                    Width = 150
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "PhoneNumber",
+                    Name = "PhoneNumber",
+                    HeaderText = "טלפון",
+                    Width = 100
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "Address",
+                    Name = "Address",
+                    HeaderText = "כתובת",
+                    Width = 200
+                });
+
+                dgv.Columns.Add(new DataGridViewCheckBoxColumn
+                {
+                    DataPropertyName = "IsAvailable",
+                    Name = "IsAvailable",
+                    HeaderText = "זמין",
+                    Width = 50
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "LastUpdate",
+                    Name = "LastUpdate",
+                    HeaderText = "עדכון אחרון",
+                    Width = 120
+                });
+            }
+            else if (dgv == dataGridViewPassengers)
+            {
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "Id",
+                    Name = "Id",
+                    HeaderText = "מזהה",
+                    Width = 50
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "Name",
+                    Name = "Name",
+                    HeaderText = "שם",
+                    Width = 150
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "PhoneNumber",
+                    Name = "PhoneNumber",
+                    HeaderText = "טלפון",
+                    Width = 100
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "Address",
+                    Name = "Address",
+                    HeaderText = "כתובת",
+                    Width = 200
+                });
+
+                dgv.Columns.Add(new DataGridViewCheckBoxColumn
+                {
+                    DataPropertyName = "IsAvailable",
+                    Name = "IsAvailable",
+                    HeaderText = "זמין",
+                    Width = 50
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "AssignedDriverId",
+                    Name = "AssignedDriverId",
+                    HeaderText = "נהג",
+                    Width = 50
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "PickupTime",
+                    Name = "PickupTime",
+                    HeaderText = "זמן איסוף",
+                    Width = 120
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "LastUpdate",
+                    Name = "LastUpdate",
+                    HeaderText = "עדכון אחרון",
+                    Width = 120
+                });
+            }
+            else if (dgv == dataGridViewResults)
+            {
+                // Configure results grid columns
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "DriverName",
+                    HeaderText = "נהג",
+                    Width = 150
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "PassengerName",
+                    HeaderText = "נוסע",
+                    Width = 150
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "PickupTime",
+                    HeaderText = "זמן איסוף",
+                    Width = 120
+                });
+
+                dgv.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "PassengerAddress",
+                    HeaderText = "כתובת איסוף",
+                    Width = 200
+                });
+            }
+
+            // Set column styles
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         private void LoadData()
