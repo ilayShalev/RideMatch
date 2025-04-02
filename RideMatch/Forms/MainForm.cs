@@ -220,21 +220,30 @@ namespace RideMatch.Forms
                 dataGridViewDrivers.DataSource = drivers;
                 dataGridViewPassengers.DataSource = passengers;
 
-                // Populate results grid
-                var results = from p in passengers
-                            where p.AssignedDriverId.HasValue
-                            join d in drivers on p.AssignedDriverId equals d.Id
-                            select new
-                            {
-                                DriverName = d.Name,
-                                PassengerName = p.Name,
-                                PickupTime = p.PickupTime?.ToString("HH:mm") ?? "",
-                                PassengerAddress = p.Address
-                            };
+                // Clear existing data source
+                dataGridViewResults.DataSource = null;
 
-                dataGridViewResults.DataSource = results.ToList();
+                // Create results data with matching column names
+                var results = from p in passengers
+                             where p.AssignedDriverId.HasValue
+                             join d in drivers on p.AssignedDriverId equals d.Id
+                             select new
+                             {
+                                 DriverName = d.Name,
+                                 PassengerName = p.Name,
+                                 PickupTime = p.PickupTime?.ToString("HH:mm") ?? "",
+                                 PassengerAddress = p.Address
+                             };
+
+                var resultsList = results.ToList();
+                dataGridViewResults.DataSource = resultsList;
 
                 toolStripStatusLabel1.Text = $"נטען: {drivers.Count} נהגים, {passengers.Count} נוסעים";
+
+                if (resultsList.Any())
+                {
+                    tabControl1.SelectedTab = tabResults;
+                }
             }
             catch (Exception ex)
             {

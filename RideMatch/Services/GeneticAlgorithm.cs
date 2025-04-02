@@ -227,6 +227,13 @@ namespace RideMatch.Services
 
         private void ApplySolution(Dictionary<int, List<int>> solution, List<Passenger> passengers)
         {
+            // First, clear all existing assignments
+            foreach (var passenger in passengers)
+            {
+                _databaseService.UpdatePassengerAssignment(passenger.Id, null, null);
+            }
+
+            // Apply new assignments
             foreach (var driverAssignment in solution)
             {
                 var driverId = driverAssignment.Key;
