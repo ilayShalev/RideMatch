@@ -209,12 +209,11 @@ namespace RideMatch.UI.Helpers
             return new PassengerForm(user, _passengerService, _mapService, _routeService);
         }
 
-        // Creates the registration form (this would be a real implementation in a full app)
+        // Creates the registration form
         public static IRegistrationForm CreateRegistrationForm(IUserService userService)
         {
-            // In a real app, this would return an actual registration form
-            // For now, return a mock implementation
-            return new MockRegistrationForm();
+            // Return the real implementation
+            return new RegistrationForm(userService);
         }
 
         // Check if services are initialized
@@ -232,45 +231,5 @@ namespace RideMatch.UI.Helpers
     {
         string Username { get; }
         DialogResult ShowDialog(IWin32Window owner);
-    }
-
-    // Mock implementation of registration form
-    internal class MockRegistrationForm : Form, IRegistrationForm
-    {
-        public string Username { get; private set; }
-
-        public MockRegistrationForm()
-        {
-            this.Text = "Register New User";
-            this.Size = new Size(400, 300);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-
-            // This would be a real registration form in a full app
-            // For now, just show a message and return a mock result
-
-            Label label = new Label
-            {
-                Text = "Registration functionality would be implemented here.",
-                Location = new Point(20, 20),
-                Size = new Size(360, 40),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-            this.Controls.Add(label);
-
-            Button btnOk = new Button
-            {
-                Text = "OK",
-                DialogResult = DialogResult.OK,
-                Location = new Point(150, 100),
-                Size = new Size(100, 30)
-            };
-            this.Controls.Add(btnOk);
-
-            // Set a mock username
-            Username = "new_user";
-        }
     }
 }
