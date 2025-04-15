@@ -55,7 +55,10 @@
     <Compile Include="Core\Interfaces\IVehicleService.cs" />
     <Compile Include="Core\Interfaces\IMapControl.cs" />
     <Compile Include="Core\Models\Destination.cs" />
+    <Compile Include="Core\Models\MapClickEventArgs.cs" />
+    <Compile Include="Core\Models\MarkerType.cs" />
     <Compile Include="Core\Models\Passenger.cs" />
+    <Compile Include="Core\Models\PointLatLng.cs" />
     <Compile Include="Core\Models\Route.cs" />
     <Compile Include="Core\Models\RouteDetails.cs" />
     <Compile Include="Core\Models\SchedulingLogEntry.cs" />
@@ -86,8 +89,11 @@
     <Compile Include="Services\MapServices\MapService.cs" />
     <Compile Include="Services\RouteServices\RideSharingAlgorithm.cs" />
     <Compile Include="Services\RouteServices\RouteService.cs" />
+    <Compile Include="Services\RouteServices\RoutingService.cs" />
     <Compile Include="Services\SchedulingServices\SchedulingService.cs" />
+    <Compile Include="Services\UserServices\PassengerService.cs" />
     <Compile Include="Services\UserServices\UserService.cs" />
+    <Compile Include="Services\UserServices\VehicleService.cs" />
     <Compile Include="UI\Controls\AddressSearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

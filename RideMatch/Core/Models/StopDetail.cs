@@ -1,19 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RideMatch.Core.Models
 {
     public class StopDetail
     {
-        // Properties for stop number, passenger ID, distances, times, etc.
+        public int StopNumber { get; set; }
+        public int PassengerId { get; set; }
+        public string PassengerName { get; set; }
+        public double DistanceFromPrevious { get; set; }
+        public double TimeFromPrevious { get; set; }
+        public double CumulativeDistance { get; set; }
+        public double CumulativeTime { get; set; }
+        public DateTime? ArrivalTime { get; set; }
 
         // Calculates the arrival time given a start time
-        public DateTime CalculateArrivalTime(DateTime startTime);
+        public DateTime CalculateArrivalTime(DateTime startTime)
+        {
+            return startTime.AddMinutes(CumulativeTime);
+        }
 
         // Gets the formatted time string for display
-        public string GetFormattedTime();
+        public string GetFormattedTime()
+        {
+            return ArrivalTime?.ToString("HH:mm") ?? "--:--";
+        }
     }
 }

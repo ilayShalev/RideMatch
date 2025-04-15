@@ -1,16 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RideMatch.Core.Models
 {
     public class SchedulingSetting
     {
-        // Properties for scheduling settings (enabled, time, etc.)
+        public bool IsEnabled { get; set; }
+        public DateTime ScheduledTime { get; set; }
 
         // Validates scheduling settings
-        public bool Validate();
+        public bool Validate()
+        {
+            // If not enabled, no other validation needed
+            if (!IsEnabled)
+                return true;
+
+            // Scheduled time should be in the future
+            if (ScheduledTime.TimeOfDay < DateTime.Now.TimeOfDay)
+                return false;
+
+            return true;
+        }
     }
 }
