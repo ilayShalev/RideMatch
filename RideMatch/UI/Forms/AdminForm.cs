@@ -16,7 +16,7 @@ namespace RideMatch.UI.Forms
     /// AdminForm provides comprehensive system management capabilities for administrators.
     /// It allows managing users, vehicles, passengers, routes, and system settings.
     /// </summary>
-    public class AdminForm : Form
+    public partial class AdminForm : Form
     {
         private User _currentUser;
         private TabControl tabControl;

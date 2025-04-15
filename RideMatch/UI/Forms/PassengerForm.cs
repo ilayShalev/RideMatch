@@ -11,7 +11,7 @@ namespace RideMatch.UI.Forms
     /// <summary>
     /// Form for passenger users to manage their ride requests and view assignments
     /// </summary>
-    public class PassengerForm : BaseUserForm
+    public partial class PassengerForm : BaseUserForm
     {
         private Passenger _passenger;
 

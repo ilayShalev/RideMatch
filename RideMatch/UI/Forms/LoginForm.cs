@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace RideMatch.UI.Forms
 {
-    public class LoginForm : Form
+    public partial class LoginForm : Form
     {
         private TextBox txtUsername;
         private TextBox txtPassword;

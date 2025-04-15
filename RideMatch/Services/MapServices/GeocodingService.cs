@@ -47,7 +47,7 @@ namespace RideMatch.Services.MapServices
                 string response = await _httpClient.GetStringAsync(url);
 
                 // Parse response
-                using JsonDocument document = JsonDocument.Parse(response);
+                JsonDocument document = JsonDocument.Parse(response);
                 var root = document.RootElement;
 
                 string status = root.GetProperty("status").GetString();
@@ -87,7 +87,7 @@ namespace RideMatch.Services.MapServices
                 string response = await _httpClient.GetStringAsync(url);
 
                 // Parse response
-                using JsonDocument document = JsonDocument.Parse(response);
+                JsonDocument document = JsonDocument.Parse(response);
                 var root = document.RootElement;
 
                 string status = root.GetProperty("status").GetString();
@@ -129,7 +129,7 @@ namespace RideMatch.Services.MapServices
                 string response = await _httpClient.GetStringAsync(url);
 
                 // Parse response
-                using JsonDocument document = JsonDocument.Parse(response);
+                JsonDocument document = JsonDocument.Parse(response);
                 var root = document.RootElement;
 
                 string status = root.GetProperty("status").GetString();

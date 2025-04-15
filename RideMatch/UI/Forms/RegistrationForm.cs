@@ -11,7 +11,7 @@ namespace RideMatch.UI.Forms
     /// <summary>
     /// Registration form for new users
     /// </summary>
-    public class RegistrationForm : Form, IRegistrationForm
+    public partial class RegistrationForm : Form, IRegistrationForm
     {
         private TextBox txtUsername;
         private TextBox txtPassword;

@@ -8,7 +8,8 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 
-namespace RideMatch.Scheduler.Installer
+
+namespace RideMatch.Scheduler.Installers
 {
     [RunInstaller(true)]
     public class ServiceInstaller : Installer

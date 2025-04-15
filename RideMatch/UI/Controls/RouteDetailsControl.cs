@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace RideMatch.UI.Controls
 {
-    public class RouteDetailsControl : UserControl
+    public partial class RouteDetailsControl : UserControl
     {
         private TabControl tabControl;
         private Dictionary<int, RichTextBox> routeTextBoxes;

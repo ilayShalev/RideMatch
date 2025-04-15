@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RideMatch.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -28,6 +29,6 @@ namespace RideMatch.Core.Interfaces
         void Refresh();
 
         // Map click event
-        event EventHandler<MapClickEventArgs> MapClick;
+         event EventHandler<MapClickEventArgs> MapClick;
     }
 }

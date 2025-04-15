@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RideMatch.UI.Forms
 {
-    public class DriverForm : BaseUserForm
+    public partial class DriverForm : BaseUserForm
     {
         private Vehicle _vehicle;
         private NumericUpDown numCapacity;

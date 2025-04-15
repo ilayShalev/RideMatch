@@ -12,7 +12,7 @@ namespace RideMatch.UI.Forms
     /// Base class for user-specific forms (Driver and Passenger)
     /// Eliminates duplication between these form types
     /// </summary>
-    public abstract class BaseUserForm : Form
+    public abstract partial class BaseUserForm : Form
     {
         protected User _currentUser;
         protected TabControl tabControl;
