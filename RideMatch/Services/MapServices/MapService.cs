@@ -38,7 +38,7 @@ namespace RideMatch.Services.MapServices
         {
             _googleMapsApiKey = googleMapsApiKey ?? throw new ArgumentNullException(nameof(googleMapsApiKey));
             _httpClient = new HttpClient();
-            _geocodingService = new GeocodingService();
+            _geocodingService = new GeocodingService(googleMapsApiKey);
         }
 
         // Initializes the map with default position
@@ -94,7 +94,7 @@ namespace RideMatch.Services.MapServices
                 var response = await _httpClient.GetStringAsync(url);
 
                 // Parse response
-                using var document = JsonDocument.Parse(response);
+                var document = JsonDocument.Parse(response);
                 var root = document.RootElement;
 
                 if (root.GetProperty("status").GetString() != "OK")
@@ -190,7 +190,7 @@ namespace RideMatch.Services.MapServices
                 var response = await _httpClient.GetStringAsync(url);
 
                 // Parse response
-                using var document = JsonDocument.Parse(response);
+                var document = JsonDocument.Parse(response);
                 var root = document.RootElement;
 
                 if (root.GetProperty("status").GetString() != "OK")

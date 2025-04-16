@@ -17,35 +17,6 @@ namespace RideMatch.UI.Controls
             routeTextBoxes = new Dictionary<int, RichTextBox>();
         }
 
-        private void InitializeComponent()
-        {
-            // Create tab control
-            tabControl = new TabControl
-            {
-                Dock = DockStyle.Fill
-            };
-            this.Controls.Add(tabControl);
-
-            // Add no routes tab
-            TabPage noRoutesTab = new TabPage("No Routes");
-
-            // Add label to no routes tab
-            Label lblNoRoutes = new Label
-            {
-                Text = "No routes to display",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-            noRoutesTab.Controls.Add(lblNoRoutes);
-
-            // Add tab
-            tabControl.TabPages.Add(noRoutesTab);
-        }
-
-        private void RouteDetailsControl_Load(object sender, EventArgs e)
-        {
-            // Nothing to do here
-        }
 
         // Displays route details for a vehicle
         public void DisplayRouteDetails(Vehicle vehicle, RouteDetails routeDetails)
@@ -199,6 +170,8 @@ namespace RideMatch.UI.Controls
                 DisplayRouteDetails(vehicle, details);
             }
         }
+
+
     }
 
     // Extension method for rich text box

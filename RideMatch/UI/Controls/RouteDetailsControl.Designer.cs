@@ -1,4 +1,8 @@
-﻿namespace RideMatch.UI.Controls
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+
+namespace RideMatch.UI.Controls
 {
     partial class RouteDetailsControl
     {
@@ -32,14 +36,17 @@
             // 
             // RouteDetailsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "RouteDetailsControl";
             this.Load += new System.EventHandler(this.RouteDetailsControl_Load);
             this.ResumeLayout(false);
 
         }
 
+
+        private void RouteDetailsControl_Load(object sender, EventArgs e)
+        {
+            // Empty implementation - keeps the designer happy
+        }
         #endregion
     }
 }

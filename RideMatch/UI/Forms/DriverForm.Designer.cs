@@ -1,4 +1,6 @@
-﻿namespace RideMatch.UI.Forms
+﻿using System;
+
+namespace RideMatch.UI.Forms
 {
     partial class DriverForm
     {
@@ -40,6 +42,11 @@
             this.Load += new System.EventHandler(this.DriverForm_Load);
             this.ResumeLayout(false);
 
+        }
+
+        private void DriverForm_Load(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

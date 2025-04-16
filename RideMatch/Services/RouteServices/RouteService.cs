@@ -12,15 +12,23 @@ namespace RideMatch.Services.RouteServices
     public class RouteService : IRouteService
     {
         private readonly RouteRepository _routeRepository;
-        private readonly IRoutingService _routingService;
+        private  IRoutingService _routingService;
         private readonly SettingsRepository _settingsRepository;
 
         // Constructor
+
         public RouteService(RouteRepository routeRepository, IRoutingService routingService, SettingsRepository settingsRepository)
         {
             _routeRepository = routeRepository ?? throw new ArgumentNullException(nameof(routeRepository));
-            _routingService = routingService ?? throw new ArgumentNullException(nameof(routingService));
+            _routingService = routingService;
             _settingsRepository = settingsRepository ?? throw new ArgumentNullException(nameof(settingsRepository));
+        }
+
+        // Add public property to access/set the _routingService field
+        public IRoutingService RoutingService
+        {
+            get { return _routingService; }
+            set { _routingService = value; }
         }
 
         // Generates optimal routes for a given date

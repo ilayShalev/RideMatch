@@ -2,6 +2,7 @@
 using RideMatch.UI.Controls;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,5 +34,8 @@ namespace RideMatch.Core.Interfaces
 
         // Gets address suggestions based on partial input
         Task<List<string>> GetAddressSuggestionsAsync(string query);
+
+        Color GetRouteColor(int index);
+
     }
 }

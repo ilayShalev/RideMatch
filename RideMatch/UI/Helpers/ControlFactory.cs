@@ -230,6 +230,7 @@ namespace RideMatch.UI.Helpers
     public interface IRegistrationForm
     {
         string Username { get; }
+        DialogResult DialogResult { get; }
         DialogResult ShowDialog(IWin32Window owner);
     }
 }

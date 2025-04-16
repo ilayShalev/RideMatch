@@ -19,9 +19,9 @@ namespace RideMatch.Services.MapServices
         /// Initializes a new instance of the GeocodingService
         /// </summary>
         /// <param name="googleMapsApiKey">Google Maps API key</param>
-        public GeocodingService(string googleMapsApiKey)
+        public GeocodingService(string googleMapsApiKey = null)
         {
-            _googleMapsApiKey = googleMapsApiKey ?? throw new ArgumentNullException(nameof(googleMapsApiKey));
+            _googleMapsApiKey = googleMapsApiKey ?? "";
             _httpClient = new HttpClient();
         }
 

@@ -33,65 +33,10 @@ namespace RideMatch.UI.Controls
         {
             InitializeComponent();
 
-            // Initialize suggestion timer
-            suggestionTimer = new Timer();
-            suggestionTimer.Interval = 500; // 500ms delay before searching for suggestions
-            suggestionTimer.Tick += async (s, e) => {
-                suggestionTimer.Stop();
-                await GetAddressSuggestionsAsync();
-            };
+   
         }
 
-        /// <summary>
-        /// Initializes the control's UI components
-        /// </summary>
-        private void InitializeComponent()
-        {
-            // Setup layout
-            this.Size = new Size(300, 80);
 
-            // Address text box
-            txtAddress = new TextBox
-            {
-                Location = new Point(0, 0),
-                Size = new Size(220, 20),
-                PlaceholderText = "Enter address to search"
-            };
-            txtAddress.TextChanged += TxtAddress_TextChanged;
-            txtAddress.KeyDown += TxtAddress_KeyDown;
-            this.Controls.Add(txtAddress);
-
-            // Search button
-            btnSearch = new Button
-            {
-                Text = "Search",
-                Location = new Point(225, 0),
-                Size = new Size(75, 23)
-            };
-            btnSearch.Click += async (sender, e) => await SearchAddressAsync();
-            this.Controls.Add(btnSearch);
-
-            // Suggestions dropdown
-            cmbSuggestions = new ComboBox
-            {
-                Location = new Point(0, 25),
-                Size = new Size(300, 20),
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Visible = false
-            };
-            cmbSuggestions.SelectedIndexChanged += CmbSuggestions_SelectedIndexChanged;
-            this.Controls.Add(cmbSuggestions);
-
-            // Status label
-            lblStatus = new Label
-            {
-                Location = new Point(0, 50),
-                Size = new Size(300, 20),
-                ForeColor = Color.Gray,
-                TextAlign = ContentAlignment.MiddleLeft
-            };
-            this.Controls.Add(lblStatus);
-        }
 
         /// <summary>
         /// Handles the Load event
@@ -103,6 +48,12 @@ namespace RideMatch.UI.Controls
             {
                 TryGetMapServiceFromParent();
             }
+        }
+
+
+        private void RouteDetailsControl_Load(object sender, EventArgs e)
+        {
+            // Empty implementation - keeps the designer happy
         }
 
         /// <summary>
@@ -318,6 +269,11 @@ namespace RideMatch.UI.Controls
         {
             AddressFound?.Invoke(this, e);
         }
+
+        private void AddressSearchControl_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
     /// <summary>
@@ -329,4 +285,8 @@ namespace RideMatch.UI.Controls
         public double Latitude { get; set; }
         public double Longitude { get; set; }
     }
+
+
+
+
 }

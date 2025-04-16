@@ -1,4 +1,6 @@
-﻿namespace RideMatch.UI.Forms
+﻿using System;
+
+namespace RideMatch.UI.Forms
 {
     partial class PassengerForm
     {
@@ -40,6 +42,11 @@
             this.Load += new System.EventHandler(this.PassengerForm_Load);
             this.ResumeLayout(false);
 
+        }
+
+        private void PassengerForm_Load(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

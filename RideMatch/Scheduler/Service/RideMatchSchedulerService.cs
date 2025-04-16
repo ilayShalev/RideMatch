@@ -9,6 +9,7 @@ using RideMatch.Services.SchedulingServices;
 using RideMatch.Services.UserServices;
 using System;
 using System.IO;
+using System.Linq;
 using System.ServiceProcess;
 using System.Threading.Tasks;
 using System.Timers;
@@ -364,7 +365,7 @@ namespace RideMatch.Scheduler.Service
                 string apiKey = _settingsRepository.GetSettingAsync("GoogleMapsApiKey", "").Result;
 
                 // Initialize services
-                _userService = new UserServices.UserService(userRepository);
+                _userService = new Services.UserServices.UserService(userRepository);
                 _vehicleService = new VehicleService(vehicleRepository);
                 _passengerService = new PassengerService(passengerRepository);
                 _mapService = new MapService(apiKey);

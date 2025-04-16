@@ -1,4 +1,7 @@
-﻿namespace RideMatch.UI.Controls
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace RideMatch.UI.Controls
 {
     partial class AddressSearchControl
     {
@@ -32,10 +35,8 @@
             // 
             // AddressSearchControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "AddressSearchControl";
-            this.Load += new System.EventHandler(this.AddressSearchControl_Load);
+            this.Load += new System.EventHandler(this.AddressSearchControl_Load_1);
             this.ResumeLayout(false);
 
         }
